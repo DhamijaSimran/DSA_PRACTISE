@@ -218,22 +218,22 @@ class LinkedList:
         repr += "None"
         print(repr)
 
-    def addPolynomials(self,polyLL5):
-        head1=self.head
-        head2=polyLL5.head
+    def addPolynomials(self, polyLL5):
+        head1 = self.head
+        head2 = polyLL5.head
 
         polyLL6 = LinkedList()
 
         while head1 is not None and head2 is not None:
-            if head1.exp==head2.exp:
-                node = Node1(head1.coeff+head2.coeff,head1.exp)
-                polyLL6.insert_polynode(polyLL6,node)
-                head1=head1.next
-                head2=head2.next
+            if head1.exp == head2.exp:
+                node = Node1(head1.coeff + head2.coeff, head1.exp)
+                polyLL6.insert_polynode(polyLL6, node)
+                head1 = head1.next
+                head2 = head2.next
 
-            elif head1.exp<head2.exp:
-                polyLL6.insert_polynode(polyLL6,copy.deepcopy(head1))
-                head1=head1.next
+            elif head1.exp < head2.exp:
+                polyLL6.insert_polynode(polyLL6, copy.deepcopy(head1))
+                head1 = head1.next
 
             else:
                 polyLL6.insert_polynode(polyLL6, copy.deepcopy(head2))
@@ -249,6 +249,7 @@ class LinkedList:
         repr += "None"
         print(repr)
         polyLL6.mergeMultPolynomialLL()
+
 
 if __name__ == "__main__":
     LL = LinkedList()

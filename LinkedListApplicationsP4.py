@@ -29,28 +29,36 @@ class LinkedList:
             nodes[i].next = nodes[i + 1]
         nodes[9].next = None
 
-    def sortLL(self):
-        beg = self.head
-        start = 0
-        end = self.len
-        # merge sort
-        self.call_merge(start, end)
 
-    def call_merge(self, start, end):
-        while start < end:
-            mid = start + ((end - start) // 2)
-            self.call_merge(start, mid)
-            self.call_merge(mid + 1, end)
-            self.mergesort(start, mid, end)
+    def mergesort_list(self):
+        if self.head is None:
+            return
 
-    def mergesort(self, start, mid, end):
-        L = [i for i in range(start, mid + 1)]
+        mid = self.get_middle()
+        left_list = self.head
+        right_list = mid.next
+        mid.next=None
+        self.mergesort_list(left_list)
+        self.mergesort_list(right_list)
+        merge_list(left_list,right_list)
+
+    def get_middle(self):
         temp = self.head
-        # sort first half of linked list
-        for i in range(start, mid + 1):
+        slow = temp
+        fast = temp
+        while fast is not None and fast.next is not None:
+            slow = temp.next
+            fast = temp.next.next
 
-            temp = temp.next
-        R = [i for i in range(mid + 1, end + 1)]
+        return slow
+
+    def merge_list(self,left_list,right_list):
+        new_list=None
+        # need to store tail of new list so that we can
+        # append to this position
+        tail = None
+        while left_list is not None and right_list is not None:
+
 
     def flattenLL(self):
         pass
