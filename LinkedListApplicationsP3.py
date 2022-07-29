@@ -130,13 +130,13 @@ class LinkedList:
         m = k
         ptr1 = self.head
         ptr2 = self.head
-        prev=None
+        prev = None
         while k > 0:
             ptr2 = ptr2.next
             k -= 1
 
         while ptr2 is not None:
-            prev=ptr1
+            prev = ptr1
             ptr1 = ptr1.next
             ptr2 = ptr2.next
 
